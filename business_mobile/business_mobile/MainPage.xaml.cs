@@ -14,10 +14,6 @@ namespace business_mobile
         {
             InitializeComponent();
         }
-        private async void Button_Registration(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Registration_Step());
-        }
         private async void Button_Login(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Login());

@@ -4,8 +4,10 @@ using System.Text;
 
 namespace business_mobile
 {
-    interface IPushNotificationRegister
+    class Firebase
     {
-        void ExtractTokenAndRegister();
+        private string FirebaseURL;
+
+        public async void 
     }
 }
