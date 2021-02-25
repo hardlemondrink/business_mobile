@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="business_mobile.TP_Home1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="selected" HorizontalOptions="Center" FontSize="Large"/>
+            <ListView x:Name="taskList" ItemTapped="taskList_ItemTapped"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
