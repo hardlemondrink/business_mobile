@@ -10,5 +10,11 @@ namespace business_mobile
         {
             return false;
         }
+        public void GetRequest()
+        {
+            var id = user.userid;
+            var deviceId = user.deviceid;
+            // Здесь прописать запрос на сервис с ответом
+        }
     }
 }

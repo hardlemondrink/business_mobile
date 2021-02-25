@@ -7,7 +7,6 @@
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
             <Label Text="Добро пожаловать в Business Task!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
-        <Button Text="Регистрация" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Clicked="Button_Registration"></Button>
         <Button Text="Вход" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="End" Clicked="Button_Login"></Button>
         <Button Text="Без авторизации" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="End" Clicked="Button_FreeLogin"/>
     </StackLayout>
