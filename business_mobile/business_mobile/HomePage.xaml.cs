@@ -15,6 +15,7 @@ namespace business_mobile
         public HomePage()
         { 
             InitializeComponent();
+            Title = "Задачи";
         }
         protected async override void OnAppearing()
         { 
