@@ -13,8 +13,6 @@ namespace business_mobile
         }
         public void GetRequest()
         {
-            var id = user.userid;
-            var deviceId = user.deviceid;
             // Здесь прописать запрос на сервис с ответом
         }
     }
