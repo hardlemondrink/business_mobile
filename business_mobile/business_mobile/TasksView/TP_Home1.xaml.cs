@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using business_mobile.TasksView;
+using business_mobile.Models;
 
 namespace business_mobile
 {
@@ -31,7 +32,17 @@ namespace business_mobile
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            taskList.ItemsSource = await App.Database.GetNotesAsync("Test");
+
+            var result = await App.Database.GetNotesAsync();
+            List<Note> ResultNotes = new List<Note>();
+            ResultNotes.Add(result[0]);
+
+            ListView listView = new ListView();
+            listView.ItemsSource = ResultNotes;
+
+            this.Content = new AbsoluteLayout { Children = { listView } };
+
+            //taskList.ItemsSource = ResultNotes;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

@@ -19,6 +19,10 @@ namespace business_mobile.Data
         {
             return _database.Table<Note>().Where(i => i.UserID == id).ToListAsync();
         }
+        public Task<List<Note>> GetNotesAsync()
+        {
+            return _database.Table<Note>().ToListAsync();
+        }
         public Task<Note> GetNoteAsync(string id)
         {
             return _database.Table<Note>()
