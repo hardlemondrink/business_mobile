@@ -33,16 +33,78 @@ namespace business_mobile
         {
             base.OnAppearing();
 
+            Label header = new Label
+            {
+                Text = "Новые задачи",
+                FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
+                HorizontalOptions = LayoutOptions.Center
+            };
+
             var result = await App.Database.GetNotesAsync();
-            List<Note> ResultNotes = new List<Note>();
-            ResultNotes.Add(result[0]);
+            //taskList.ItemsSource = result;
 
-            ListView listView = new ListView();
-            listView.ItemsSource = ResultNotes;
+            List<Note> listNotes = new List<Note>();
 
-            this.Content = new AbsoluteLayout { Children = { listView } };
+            foreach (Note note in result)
+            {
+                listNotes.Add(note);
+            }
 
-            //taskList.ItemsSource = ResultNotes;
+            Button taskAdd = new Button();
+            taskAdd.Clicked += Button_Clicked;
+            taskAdd.Text = "Добавить";
+            taskAdd.VerticalOptions = LayoutOptions.EndAndExpand;
+            taskAdd.HorizontalOptions = LayoutOptions.Center;
+            taskAdd.BackgroundColor = Color.Aquamarine;
+            
+            ListView listView = new ListView
+            {
+                ItemsSource = listNotes,
+                ItemTemplate = new DataTemplate(() =>
+                {
+                    Label taskName = new Label();
+                    taskName.SetBinding(Label.TextProperty, "TaskName");
+
+                    Label taskDate = new Label();
+                    taskDate.SetBinding(Label.TextProperty, new Binding("TaskDate", BindingMode.OneWay, null, null, "Create {0:d}", null));
+
+                    //BoxView boxView = new BoxView();
+                    //boxView.SetBinding(BoxView.ColorProperty, Color.Blue);
+
+                    return new ViewCell
+                    {
+                        View = new StackLayout
+                        {
+                            Padding = new Thickness(0, 5),
+                            Orientation = StackOrientation.Horizontal,
+                            Children =
+                            {
+                                //boxView,
+                                new StackLayout
+                                {
+                                    VerticalOptions = LayoutOptions.Center,
+                                    Spacing = 0,
+                                    Children =
+                                    {
+                                        taskName,
+                                        taskDate
+                                    }
+                                }
+                            }
+                        }
+                    };
+
+                })
+            };
+            this.Content = new AbsoluteLayout
+            {
+                Children =
+                {
+                    header,
+                    listView
+                    //taskAdd
+                }
+            };
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace business_mobile.Models
 {
@@ -14,5 +15,6 @@ namespace business_mobile.Models
         public DateTime TaskDate { get; set; }
         public string TaskDescription { get; set; }
         public string UserID { get; set; }
+        //public Color TaskColor { get; set; }
     }
 }

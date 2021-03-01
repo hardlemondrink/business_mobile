@@ -6,8 +6,7 @@
         <ContentPage.Content>
         <AbsoluteLayout>
             <Label x:Name="selected" HorizontalOptions="Center" FontSize="Large"/>
-            <ListView x:Name="taskList" ItemTapped="taskList_ItemTapped""/>
-            <Button Text="+" AbsoluteLayout.LayoutBounds="0.1, 0.9, 20, 20"
+            <Button Text="Добавить" AbsoluteLayout.LayoutBounds="0.1, 0.9, 20, 20"
                 AbsoluteLayout.LayoutFlags ="PositionProportional"
                 HeightRequest="50"
                 WidthRequest="50"
