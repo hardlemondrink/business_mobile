@@ -25,7 +25,7 @@ namespace business_mobile
         {
             if(e.Item != null)
             {
-                selected.Text = e.Item.ToString();
+                //selected.Text = e.Item.ToString();
                 ((ListView)sender).SelectedItem = null;
             }
         }
@@ -53,9 +53,8 @@ namespace business_mobile
             Button taskAdd = new Button();
             taskAdd.Clicked += Button_Clicked;
             taskAdd.Text = "Добавить";
-            taskAdd.VerticalOptions = LayoutOptions.EndAndExpand;
             taskAdd.HorizontalOptions = LayoutOptions.Center;
-            taskAdd.BackgroundColor = Color.Aquamarine;
+            //taskAdd.BackgroundColor = Color.Aquamarine;
             
             ListView listView = new ListView
             {
@@ -96,15 +95,27 @@ namespace business_mobile
 
                 })
             };
-            this.Content = new AbsoluteLayout
+
+            AbsoluteLayout floatingButton = new AbsoluteLayout
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.End,
+                Children =
+                {
+                    taskAdd
+                }
+            };
+
+            StackLayout stackLayout = new StackLayout
             {
                 Children =
                 {
-                    header,
-                    listView
-                    //taskAdd
+                    listView,
+                    floatingButton
                 }
             };
+
+            this.Content = stackLayout;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

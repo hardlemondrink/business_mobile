@@ -4,16 +4,7 @@
              x:Class="business_mobile.TP_Home1">
     
         <ContentPage.Content>
-        <AbsoluteLayout>
-            <Label x:Name="selected" HorizontalOptions="Center" FontSize="Large"/>
-            <Button Text="Добавить" AbsoluteLayout.LayoutBounds="0.1, 0.9, 20, 20"
-                AbsoluteLayout.LayoutFlags ="PositionProportional"
-                HeightRequest="50"
-                WidthRequest="50"
-                CornerRadius="25"
-                Clicked="Button_Clicked"
-                ImageSource="icon/Plus_AddTask.png"/>
-        </AbsoluteLayout>
+        
     </ContentPage.Content>
    
 </ContentPage>

@@ -19,6 +19,11 @@ namespace business_mobile.TasksView
             InitializeComponent();
         }
 
+        private void OnAppearing()
+        {
+            base.OnAppearing();
+            Title = "Новая задача";
+        }
         private async void TaskAdd_Clicked(object sender, EventArgs e)
         {
             Note note = new Note();
