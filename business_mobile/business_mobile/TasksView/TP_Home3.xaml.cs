@@ -10,28 +10,25 @@ using Xamarin.Forms.Xaml;
 namespace business_mobile
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TP_Home1 : ContentPage
+    public partial class TP_Home3 : ContentPage
     {
-        public TP_Home1()
+        public TP_Home3()
         {
             InitializeComponent();
-            GetInfo();
         }
-
         public string[] tasks { get; set; }
-        public void GetInfo()
-        {
-            taskList.ItemsSource = ServerQuery.Tasks(user.userid, "new");
-        }
-
         private void taskList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            if(e.Item != null)
+            if (e.Item != null)
             {
                 selected.Text = e.Item.ToString();
                 ((ListView)sender).SelectedItem = null;
             }
-
+        }
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            taskList.ItemsSource = await App.Database.GetNotesAsync("Test");
         }
     }
 }
