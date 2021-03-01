@@ -41,7 +41,6 @@ namespace business_mobile
             };
 
             var result = await App.Database.GetNotesAsync();
-            //taskList.ItemsSource = result;
 
             List<Note> listNotes = new List<Note>();
 
@@ -54,7 +53,6 @@ namespace business_mobile
             taskAdd.Clicked += Button_Clicked;
             taskAdd.Text = "Добавить";
             taskAdd.HorizontalOptions = LayoutOptions.Center;
-            //taskAdd.BackgroundColor = Color.Aquamarine;
             
             ListView listView = new ListView
             {
