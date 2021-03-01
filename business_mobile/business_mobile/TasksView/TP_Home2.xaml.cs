@@ -15,14 +15,8 @@ namespace business_mobile
         public TP_Home2()
         {
             InitializeComponent();
-            GetInfo();
         }
         public string[] tasks { get; set; }
-        public void GetInfo()
-        {
-            taskList.ItemsSource = ServerQuery.Tasks(user.userid, "inProgress");
-        }
-
         private void taskList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item != null)
@@ -30,6 +24,11 @@ namespace business_mobile
                 selected.Text = e.Item.ToString();
                 ((ListView)sender).SelectedItem = null;
             }
+        }
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            taskList.ItemsSource = await App.Database.GetNotesAsync("Test");
         }
     }
 }
