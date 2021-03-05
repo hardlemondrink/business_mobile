@@ -15,6 +15,6 @@ namespace business_mobile.Models
         public DateTime TaskDate { get; set; }
         public string TaskDescription { get; set; }
         public string UserID { get; set; }
-        //public Color TaskColor { get; set; }
+        public bool Processed { get; set; }
     }
 }
