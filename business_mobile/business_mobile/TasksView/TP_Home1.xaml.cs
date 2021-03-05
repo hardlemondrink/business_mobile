@@ -15,6 +15,7 @@ namespace business_mobile
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TP_Home1 : ContentPage
     {
+        private ListView listItems;
         public TP_Home1()
         {
             InitializeComponent();
@@ -62,11 +63,13 @@ namespace business_mobile
                     Label taskName = new Label();
                     taskName.SetBinding(Label.TextProperty, "TaskName");
 
-                    Label taskDate = new Label();
-                    taskDate.SetBinding(Label.TextProperty, new Binding("TaskDate", BindingMode.OneWay, null, null, "Create {0:d}", null));
+                    Label taskDescription = new Label();
+                    taskDescription.SetBinding(Label.TextProperty, "TaskDescription");
 
-                    //BoxView boxView = new BoxView();
-                    //boxView.SetBinding(BoxView.ColorProperty, Color.Blue);
+                    Label taskDate = new Label();
+                    taskDate.SetBinding(Label.TextProperty, "TaskDescription");
+                    //taskDate.SetBinding(Label.TextProperty,
+                    //                    new Binding("TaskDescription", BindingMode.TwoWay, null, null, "Создано {0:d}", null));
 
                     return new ViewCell
                     {
@@ -76,7 +79,6 @@ namespace business_mobile
                             Orientation = StackOrientation.Horizontal,
                             Children =
                             {
-                                //boxView,
                                 new StackLayout
                                 {
                                     VerticalOptions = LayoutOptions.Center,
@@ -84,6 +86,7 @@ namespace business_mobile
                                     Children =
                                     {
                                         taskName,
+                                        taskDescription,
                                         taskDate
                                     }
                                 }
@@ -112,8 +115,16 @@ namespace business_mobile
                     floatingButton
                 }
             };
-
+            listView.ItemTapped += ListView_ItemTapped;
+            listItems = listView;
             this.Content = stackLayout;
+        }
+
+        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var selectedItem = (Note)listItems.SelectedItem;
+            await Navigation.PushAsync(new NoteContent(selectedItem));
+            ((ListView)sender).SelectedItem = null;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

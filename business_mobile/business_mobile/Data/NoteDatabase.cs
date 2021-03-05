@@ -19,6 +19,10 @@ namespace business_mobile.Data
         {
             return _database.Table<Note>().Where(i => i.UserID == id).ToListAsync();
         }
+        public Task<List<Note>> GetNotesAsync(bool Processed)
+        {
+            return _database.Table<Note>().Where(i => i.Processed == Processed).ToListAsync();
+        }
         public Task<List<Note>> GetNotesAsync()
         {
             return _database.Table<Note>().ToListAsync();
@@ -31,7 +35,7 @@ namespace business_mobile.Data
         }
         public Task<int> SaveNoteAsync(Note note)
         {
-            if(note.TaskID != "")
+            if(note.TaskID != null)
             {
                 return _database.UpdateAsync(note);
             }

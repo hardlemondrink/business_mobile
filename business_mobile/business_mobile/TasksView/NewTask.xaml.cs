@@ -29,8 +29,8 @@ namespace business_mobile.TasksView
             Note note = new Note();
             note.TaskDate = DateTime.Now;
             note.TaskDescription = Convert.ToString(TaskDescription.Text);
-            note.TaskID = "";
-            //note.UserID = Convert.ToString(App.user.userid); 
+            //note.TaskID = new Guid();
+            note.Processed = true; 
             note.TaskName = Convert.ToString(TaskName.Text);
 
             await App.Database.SaveNoteAsync(note);
