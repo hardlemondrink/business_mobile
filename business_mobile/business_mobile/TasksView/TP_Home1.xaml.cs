@@ -26,7 +26,6 @@ namespace business_mobile
         {
             if(e.Item != null)
             {
-                //selected.Text = e.Item.ToString();
                 ((ListView)sender).SelectedItem = null;
             }
         }
