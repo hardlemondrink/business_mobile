@@ -6,9 +6,13 @@ namespace business_mobile
 {
     public class User
     {
-        public string userid { get; set;}
-        public static string deviceid { get; set; }
-        public static string setData { get; set; }
-        public static string clientUid { get; set; }
+        public string UserId { get; set;}
+        public string Deviceid { get; set; }
+        public string ClientUid { get; set; }
+        public string TypeClient { get; private set; }
+        public void SetTypeClient()
+        {
+
+        }
     }
 }

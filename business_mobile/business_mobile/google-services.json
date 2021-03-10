@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "929316093731",
+    "project_id": "xamarinfirebasebusiness",
+    "storage_bucket": "xamarinfirebasebusiness.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929316093731:android:44d1e860eb6c7322e7d696",
+        "android_client_info": {
+          "package_name": "com.proka.businessmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929316093731-h0igaqrsmv0irq78mhe16rskpkqft071.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE7MORJKmSXcWWHRlZRV0b7PJAN9iywPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929316093731-h0igaqrsmv0irq78mhe16rskpkqft071.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

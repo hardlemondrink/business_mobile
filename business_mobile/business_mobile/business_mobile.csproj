@@ -11,12 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Новая папка\**" />
-    <EmbeddedResource Remove="Новая папка\**" />
-    <None Remove="Новая папка\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="Class1.cs" />
     <Compile Remove="Page1.cs" />
     <Compile Remove="RegistrationPage.cs" />
@@ -25,7 +19,12 @@
   <ItemGroup>
     <None Remove="Database.mdf" />
     <None Remove="Database_log.ldf" />
+    <None Remove="google-services.json" />
     <None Remove="Settings-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="google-services.json" />
   </ItemGroup>
 
   <ItemGroup>

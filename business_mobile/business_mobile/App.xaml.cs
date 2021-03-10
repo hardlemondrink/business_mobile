@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Globalization;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using business_mobile.Data;
 using System.IO;
+
+using Xamarin.Forms;
+using Xamarin.Essentials;
+
+using business_mobile.Data;
 
 namespace business_mobile
 {
     public partial class App : Application
     {
         static NoteDatabase database;
-        public static User user;
-        public static void SetUserParams()
-        {
-            user.userid = "Test";
-        }
         public static NoteDatabase Database
         {
             get
@@ -28,10 +24,9 @@ namespace business_mobile
         }
         public App()
         {
-            InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
+            InitializeComponent();
         }
-
         protected override void OnStart()
         {
         }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace business_mobile
 {
@@ -15,7 +16,19 @@ namespace business_mobile
         public Login()
         {
             InitializeComponent();
-            Title = "Авторизация";
+        }
+        public string UserID { get; private set; }
+
+        private void SetUserID(string id)
+        {
+            UserID = id;
+            Preferences.Set("userid", UserID);
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            SetUserID(EntryPhone.Text);
+            
         }
     }
 }
